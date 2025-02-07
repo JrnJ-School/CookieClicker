@@ -12,6 +12,7 @@ struct HomeView: View {
     
     var body: some View {
         VStack {
+            Text("Cookie Clicker").font(.largeTitle)
             Button(action: Hello) {
                 Image("cookie")
                     .resizable(resizingMode: .stretch)
