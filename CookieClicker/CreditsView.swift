@@ -13,9 +13,6 @@ struct CreditsView: View {
             Text("Credits")
                 .fontWeight(.bold)
             Text("Jeroen")
-            Button("Back", action: {
-                
-            })
         }
     }
 }

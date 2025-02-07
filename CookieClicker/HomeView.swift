@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var cookies: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button(action: Hello) {
+                Image("cookie")
+                    .resizable(resizingMode: .stretch)
+                    .scaledToFit()
+            }
+            Text("Cookies: \(cookies)")
+        }
+        .padding()
+    }
+    
+    func Hello() -> Void {
+        cookies += 1
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(cookies: .constant(10))
 }

@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct StoreView: View {
+    @Binding var cookies: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Store")
+            Text("You have \(cookies) cookies!")
+        }
     }
 }
 
 #Preview {
-    StoreView()
+    StoreView(cookies: .constant(10))
 }
