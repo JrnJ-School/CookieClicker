@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @Binding var cookies: Int
+    @StateObject var jar: CookieJar
     
     var body: some View {
         VStack {
@@ -18,16 +18,18 @@ struct HomeView: View {
                     .resizable(resizingMode: .stretch)
                     .scaledToFit()
             }
-            Text("Cookies: \(cookies)")
+            Text("Cookies: \(jar.cookies)")
         }
         .padding()
     }
     
     func Hello() -> Void {
-        cookies += 1
+        jar.add(cookies: 1)
     }
 }
 
 #Preview {
-    HomeView(cookies: .constant(10))
+    var cookieJar = CookieJar(cookies: 10)
+    
+    HomeView(jar: cookieJar)
 }

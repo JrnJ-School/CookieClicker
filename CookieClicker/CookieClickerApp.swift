@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct CookieClickerApp: App {
+    var cookieJar = CookieJar(cookies: 10);
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(jar: cookieJar)
         }
     }
 }

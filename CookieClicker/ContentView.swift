@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var cookies = 0;
+    @StateObject var jar: CookieJar
     
     var body: some View {
         NavigationStack {
-            HomeView(cookies: $cookies)
+            HomeView(jar: jar)
             HStack {
-                NavigationLink("Store", destination: StoreView(cookies: $cookies))
+                NavigationLink("Store", destination: StoreView(jar: jar))
                 NavigationLink("Credits", destination: CreditsView())
             }
         }
@@ -23,5 +23,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    var cookieJar = CookieJar(cookies: 10)
+    
+    ContentView(jar: cookieJar)
 }

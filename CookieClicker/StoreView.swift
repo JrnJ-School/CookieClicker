@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct StoreView: View {
-    @Binding var cookies: Int
+    @StateObject var jar: CookieJar
     
     var body: some View {
         VStack {
             Text("Store")
-            Text("You have \(cookies) cookies!")
+            Text("You have \(jar.cookies) cookies!")
         }
     }
 }
 
 #Preview {
-    StoreView(cookies: .constant(10))
+    var cookieJar = CookieJar(cookies: 10)
+    
+    StoreView(jar: cookieJar)
 }
